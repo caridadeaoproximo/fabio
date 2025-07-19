@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+      <script>
+  window.pixelId = "67edf4c3c10671e61577006d";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favi.webp" type="image/png" />
+    <title>Ajude Fábio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/glide.core.min.css" />
+    <link rel="stylesheet" href="css/glide.theme.min.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <script src="js/qrcode.min.js"></script>
+  </head>
+<script>
+  // Parâmetros que você quer passar adiante
+  const paramsToKeep = [
+    "utm_source",
+    "utm_campaign",
+    "utm_medium",
+    "utm_content",
+    "utm_term",
+    "xcod"
+  ];
+
+  function getCurrentParams() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const result = {};
+    paramsToKeep.forEach(param => {
+      const value = urlSearchParams.get(param);
+      if (value) result[param] = value;
+    });
+    return result;
+  }
+
+  function buildQueryString(params) {
+    return Object.entries(params)
+      .map(([key, val]) => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`)
+      .join("&");
+  }
+
+  function updateInternalLinks() {
+    const links = document.querySelectorAll("a[href]");
+    const currentParams = getCurrentParams();
+    if (Object.keys(currentParams).length === 0) return;
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Aplica em links relativos (dentro do site) OU links de checkout externos
+      if (
+        href.startsWith("/") ||
+        href.startsWith(window.location.origin) ||
+        href.includes("checkout.geterectus.site")
+      ) {
+        let url;
+        try {
+          url = new URL(href, window.location.origin);
+        } catch (e) {
+          // Se não for um URL válido, ignora
+          return;
+        }
+        const linkParams = new URLSearchParams(url.search);
+
+        // Adiciona os parâmetros desejados
+        for (const key in currentParams) {
+          linkParams.set(key, currentParams[key]);
+        }
+
+        url.search = linkParams.toString();
+        link.setAttribute("href", url.origin + url.pathname + url.search);
+      }
+    });
+  }
+
+  // Quando a página carregar, atualiza os links
+  document.addEventListener("DOMContentLoaded", updateInternalLinks);
+</script>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a>
+            <img src="images/ajudelogo.png" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="post">
+      <h3>
+        🌊 Fábio — Um Herói da Praia Que Precisa da Sua Ajuda Hoje
+      </h3>
+      <img src="images/mano1.jpeg" />
+      <div class="image-container">
+        <div class="likes-container">
+          <img src="images/boll.png" alt="Corações" />
+          <!-- Mini Imagem que você carregou -->
+          <span>89 corações recebidos ❤️</span>
+        </div>
+      </div>
+      <a href="#button-section" class="btn-anchor">
+        <button class="post-button3">DOAR AGORA</button>
+      </a>
+      <p><strong>Um Sonho que Virou Superação</strong></p>
+
+      <p>
+        Fábio sempre foi um homem do mar. Desde os 10 anos, surfava as ondas de Florianópolis com paixão, liberdade e alegria. Aos 30, sua vida era feita de mar, amigos e família. <strong>Mas em um instante, tudo mudou.</strong>
+      </p>
+
+      <p>
+        <strong>Em um acidente de carro que marcou sua história para sempre, Fábio sofreu múltiplas fraturas na coluna e na cervical. Hoje, há 22 anos, ele vive com tetraplegia, dependendo de cuidados constantes para realizar as ações mais simples da vida.</strong>
+      </p>
+
+      <p>
+        💔 <strong>Ele Não Pode:</strong><br>
+        • Abraçar quem ama<br>
+        • Comer sozinho<br>
+        • Cuidar da própria higiene íntima<br>
+        • Mexer os braços ou as pernas
+      </p>
+
+      <p>
+        Mas mesmo assim, <strong>Fábio nunca perdeu a força de viver, o sorriso no rosto ou a esperança de um futuro melhor.</strong> Ele virou um exemplo de resiliência, coragem e amor à vida.
+      </p>
+
+      <p>
+        👨‍👩‍👦 <strong>A Família que Não Desiste</strong><br>
+        Fábio tem uma família incrível. Sua esposa, seus filhos e amigos são o suporte que o mantém firme todos os dias. Eles cuidam dele com amor, paciência e dedicação. <strong>Mas a realidade é dura:</strong>
+      </p>
+
+      <p>
+        • Custos com equipamentos médicos<br>
+        • Adaptações no lar<br>
+        • Suprimentos diários<br>
+        • Terapias especializadas
+      </p>
+
+      <p>
+        Esses custos são altos e, mesmo com todo o amor do mundo, <strong>a família precisa de ajuda urgente para garantir a Fábio uma vida com mais dignidade, conforto e qualidade de vida.</strong>
+      </p>
+
+      <p>
+        🙌 <strong>Sua Doação Pode Mudar Tudo</strong><br>
+        Cada real arrecadado será usado para:
+      </p>
+
+      <p>
+        • Equipamentos médicos e cadeiras de rodas especializadas<br>
+        • Adaptações no lar para maior acessibilidade<br>
+        • Cuidados diários e suprimentos essenciais<br>
+        • Terapias e reabilitação para manter sua saúde e bem-estar
+      </p>
+
+      <p>
+        Você pode estar se perguntando: <strong>"Por que ajudar agora?"</strong>
+      </p>
+
+      <p>
+        • Porque Fábio não desistiu da vida, e a gente não pode desistir dele.<br>
+        • Porque cada doação, por menor que seja, faz a diferença.<br>
+        • Porque você pode ser parte da transformação nessa história de superação.
+      </p>
+
+      <img src="images/mano2.jpeg" style="width: 90%; height: auto" />
+      
+      <p>
+        💌 <strong>Testemunhos de Quem Conhece Fábio</strong>
+      </p>
+
+      <p>
+        <em>"Fábio é o cara mais forte que eu conheço. Ele me inspira todos os dias a valorizar a vida. Sei que, com um pouco de ajuda, ele pode continuar sendo esse exemplo pra muita gente."</em><br>
+        <strong>— Lucas, amigo de infância</strong>
+      </p>
+
+      <p>
+        <em>"Eu sou filha do Fábio. Cresci vendo ele lutar todos os dias. Mesmo sem poder me abraçar, ele me ensinou o que é amar com o coração. Quero que ele tenha mais conforto. Por isso, estou aqui, pedindo ajuda com o coração nas mãos."</em><br>
+        <strong>— Nicci, filha de Fábio</strong>
+      </p>
+
+      <p>
+        📢 <strong>Um Chamado ao Coração de Quem Se Importa</strong><br>
+        Fábio já deu tudo de si à vida. Agora, é hora de a vida dar algo de volta.<br>
+        Ele merece viver com conforto, com dignidade, com cuidado.
+      </p>
+
+      <p>
+        Se você já perdeu alguém que amava, sabe como é sentir que poderia ter feito mais.<br>
+        <strong>Não deixe esse sentimento chegar até você.</strong>
+      </p>
+
+      <p>
+        Agora é a hora. Hoje é o dia. <strong>Você pode ser a diferença.</strong>
+      </p>
+
+      <a href="#button-section" class="btn-anchor">
+        <button class="post-button3">DOAR AGORA</button>
+      </a>
+      
+      <p><strong>Você receberá:</strong></p>
+
+      <p><strong>● Atualizações semanais</strong> da nossa jornada</p>
+      <p><strong>● Vídeo do primeiro dia com os novos equipamentos</strong></p>
+      <p><strong>● Seu nome na nossa lista de anjos</strong> (se desejar)</p>
+
+      <p>
+        <strong>Compartilhe nossa história</strong>. Cada compartilhamento é uma
+        <strong>nova chance</strong> de devolver a dignidade ao Fábio.
+      </p>
+
+      <p><strong>Que Deus abençoe você e a sua família</strong>.</p>
+
+      <p><strong>Att: Família do Fábio</strong>.</p>
+
+ <div id="button-section">
+        <div class="progress-content">
+          <div class="progress-text">
+            <h4>Arrecadado</h4>
+            <div class="progress-values">
+              <p>R$ 18.750,00</p>
+              <p>R$ 150.000,00</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar" style="width: 12%">
+              <strong>12%</strong>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="text-align: center;">Clique no valor <br> que deseja doar</h4>
+        <p class="donation-multiplier"><strong>✨ DOAÇÃO DUPLICADA! ✨</strong>
+         Doações a partir de R$50 serão multiplicadas por 2 pelos nossos patrocinadores e grupo de empresários que apoiam nossa campanha! Sua ajuda vale o dobro até 25/07. Não perca essa oportunidade de maximizar seu impacto na vida do Fábio!</p>
+        </div>
+        </div>
+        <div class="buttons-section">
+          <div class="buttons-section1">
+            <a href="https://checkout.geterectus.site/YEwR3AJYjkZdKyk">
+              <button class="post-button2">R$ 30</button>
+            </a>
+            <a href="https://checkout.geterectus.site/4KovG1vklqgyDEm">
+              <button class="post-button2">R$ 50</button>
+            </a>
+            <a href="https://checkout.geterectus.site/zj6aGn17y1ZwlK9">
+              <button class="post-button2">R$ 70</button>
+            </a>
+            <a href="https://checkout.geterectus.site/q510ZO6Jl83E9D4">
+              <button class="post-button2">R$ 100</button>
+            </a>
+            <a href="https://checkout.geterectus.site/VroegNVRoOgKwjd">
+              <button class="post-button2">R$ 150</button>
+            </a>
+          </div>
+          <div class="buttons-section1">
+            <a href="https://checkout.geterectus.site/rn4RgQJ81W3wBV7">
+              <button class="post-button2">R$ 200</button>
+            </a>
+            <a href="https://checkout.geterectus.site/bz5KZbMxyn37dLl">
+              <button class="post-button2">R$ 300</button>
+            </a>
+            <a href="https://checkout.geterectus.site/PyE2ZyJkPNGqRbV">
+              <button class="post-button2">R$ 500</button>
+            </a>
+            <a href="https://checkout.geterectus.site/7vJOGYjDyqgKXda">
+              <button class="post-button2">R$ 700</button>
+            </a>
+            <a href="https://checkout.geterectus.site/yOeXZKYEdqgAQap">
+              <button class="post-button2">R$ 1000</button>
+            </a>
+          </div>
+        </div>
+          <div class="sc-jXbUNg gNPJrz">
+            <div class="sc-jXbUNg dHwLb">
+              <div class="sc-jXbUNg jbBvcf"></div>
+              <div class="sc-jXbUNg dTrGCo sc-gRtvSG fpURXW"></div>
+            </div>
+          </div>
+          <div class="button-pix">
+            <div class="texto" id="1">
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section logo-section">
+            <a>
+              <img src="images/ajudelogo.png" />
+            </a>
+          </div>
+
+          <div class="footer-bottom">
+            <p>2025 - Todos direitos reservados</p>
+          </div>
+        </div>
+      </footer>
+
+      <script data-cfasync="false" src="js/email-decode.min.js"></script>
+      <script src="js/script.js"></script>
+      <script src="js/toast.js"></script>
+      <script>
+        function copyEmail() {
+          const emailText = document.getElementById('donation-email').textContent;
+          navigator.clipboard.writeText(emailText)
+            .then(() => {
+              showToast('Email copiado com sucesso!', 'success');
+            })
+            .catch(err => {
+              console.error('Erro ao copiar email: ', err);
+              showToast('Erro ao copiar email', 'error');
+            });
+        }
+
+        function showToast(message, type) {
+          const toast = document.createElement('div');
+          toast.className = 'toast ' + type;
+          toast.innerHTML = `
+            <div class="toast-content">
+              <span>${message}</span>
+            </div>
+          `;
+          document.body.appendChild(toast);
+          
+          // Mostra o toast
+          setTimeout(() => {
+            toast.classList.add('show');
+          }, 100);
+          
+          // Remove o toast após 3 segundos
+          setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+              document.body.removeChild(toast);
+            }, 300);
+          }, 3000);
+        }
+      </script>
+      <style>
+        .email-donation {
+          margin: 20px auto;
+          max-width: 500px;
+          text-align: center;
+        }
+        .email-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin: 0 auto 20px;
+          padding: 12px;
+          background-color: #f5f8ff;
+          border-radius: 8px;
+          border: 1px solid #ccdeff;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          max-width: 450px;
+        }
+        #donation-email {
+          font-weight: bold;
+          color: #3366cc;
+          font-size: 16px;
+        }
+        #copy-email-btn {
+          background-color: #1e88e5;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          padding: 8px 15px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.3s;
+        }
+        #copy-email-btn:hover {
+          background-color: #1565c0;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos da Toast */
+        .toast {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%) translateY(100px);
+          padding: 12px 20px;
+          border-radius: 4px;
+          color: white;
+          font-weight: 500;
+          z-index: 9999;
+          opacity: 0;
+          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+          max-width: 80%;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toast.show {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+        
+        .toast.success {
+          background-color: #43a047;
+        }
+        
+        .toast.error {
+          background-color: #e53935;
+        }
+        
+        .toast-content {
+          display: flex;
+          align-items: center;
+        }
+      </style>
+  </body>
+</html>
